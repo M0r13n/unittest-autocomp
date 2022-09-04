@@ -71,6 +71,6 @@ test.test_completions.MethodnameCompletionTestCase.test_completion_with_empty_pa
    - `pip install unittest-autocomp`
 3. Activate the completion:
    - paste the file: ./unittest-completion to **/etc/bash_completion.d**:
-     - `sudo wget TBD -P /etc/bash_completion.d`
+     - `sudo wget https://github.com/M0r13n/unittest-autocomp/blob/main/unittest-completion -P /etc/bash_completion.d`
 
 By default this installation will yield completions for the command `python -m unittest`. If you invoke the unittest module otherwise you need to change the line `CMD="python -m unittest"` locally on your machine to match your invocation.
