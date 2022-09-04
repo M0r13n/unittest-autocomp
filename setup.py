@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="unittest-autocomp",
-    version='0.0.1',
+    version='1.0.0',
     author="Leon Morten Richter",
     author_email="misc@leonmortenrichter.de",
     description="Autocompletion for unittest in Python",
