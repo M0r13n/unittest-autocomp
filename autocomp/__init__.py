@@ -167,6 +167,10 @@ def main(args: typing.List[str]) -> int:
     return 0
 
 
-if __name__ == '__main__':
+def run():
     exit_code = main(sys.argv[1:])
     sys.exit(exit_code)
+
+
+if __name__ == '__main__':
+    run()

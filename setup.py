@@ -16,7 +16,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/M0r13n/unittest-autocomp",
     license="MIT",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=['test*', ]),
     package_data={
         "pyais": ["py.typed"]
     },
@@ -35,7 +35,7 @@ setuptools.setup(
     },
     entry_points={
         "console_scripts": [
-            'unittest-autocomp=autocomp:main'
+            'unittest-autocomp=autocomp:run'
         ]
     }
 )
