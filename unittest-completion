@@ -2,18 +2,27 @@
 # Autocompletion for Python unittests
 # Project: https://github.com/M0r13n/unittest-autocomp
 
-CMD="python -m unittest"
-
 _complete()
 {
+    local cmd="${1##*/}"
+    local line="${COMP_LINE}"
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local completions=""
+
+    # Quietly return nothing if the companion Python script is missing
     if ! command -v "unittest-autocomp" &> /dev/null
     then
-        echo "unittest-autocomp could not be found in path"
-        exit 1
+        return
     fi
 
+    # Check if the program was invoked as 'python -m unittest ...'
+    case "$line" in
+        *unittest*)
+            completions="$( unittest-autocomp $cur )"
+            ;;
+        esac    
+
     cur="${COMP_WORDS[COMP_CWORD]}"
-    completions="$( unittest-autocomp $cur )"
     COMPREPLY=( $( compgen -W "$completions" -- $cur ) )
 }
-complete -o default -o nospace -F _complete $CMD
+complete -o default -o nospace -F _complete  python python3 python3.{3-11}
